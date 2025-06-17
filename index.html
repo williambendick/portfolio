@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <meta name="description" content="Portfolio of William Bendick, a full stack software developer specializing in relational databases and C# .NET.">
+    <title>William Bendick</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+</head>
+<body>
+    <header>
+        <div id="header-items">
+            <h1 id="title">
+                <span class="title-item">William</span>&nbsp;<span class="title-item">Bendick</span>
+            </h1>
+            <nav id="menu" aria-label="Main navigation">
+                <a href="#about" class="menu-item menu-item-selected">About</a>
+                <a href="#projects" class="menu-item">Projects</a>
+                <a href="#connections" class="menu-item">Connections</a>
+            </nav>
+            <button id="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu">
+                <span class="menu-toggle-bar"></span>
+                <span class="menu-toggle-bar"></span>
+                <span class="menu-toggle-bar"></span>
+            </button>
+        </div>
+    </header>
+    <main id="content">
+        <div id="content-rail"></div>
+        <h2 id="about">About</h2>
+        <div>
+            <div class="content-item">
+                <p>
+                    Hi, I am a full stack software developer specializing in relational databases and C# .NET. I have 15 years of professional experience working
+                    with diverse technologies that include HTML/CSS/JavaScript, PHP, Python, MS SQL, SSIS, MySQL, SQLite and
+                    others.
+                </p>
+                <p class="additional-p">
+                    I strive to develop solutions that provide value, perform well and are enjoyable to use.
+                    Please see the projects below for examples of work that I have done.
+                </p>
+            </div>
+        </div>
+        <hr>
+        <h2 id="projects">Projects</h2>
+        <div class="project content-item">
+            <div>
+                <span class="project-name">
+                    <a href="https://github.com/williambendick/Question-DB" target="_blank" rel="noopener noreferrer">
+                        Question DB<span aria-hidden="true" class="external-link-icon"></span>
+                    </a>
+                </span>
+                <p>
+                    This is the database repo for an application I am developing called Question.
+                    Question is a diagnostic tool and symptom tracker used for managing the process of problem solving.
+                </p>
+                <p class="additional-p">
+                    The repo contains a schema description, ER diagrams, screenshots of the application UI, and SQL scripts to build, populate and query the database.
+                </p>
+            </div>
+            <a class="content-image" target="_blank" href="https://github.com/williambendick/Question-DB">
+                <img src="images/erd.png" alt="entity relationship diagram for Question-DB project">
+            </a>
+        </div>
+        <div class="project content-item project-ap">
+            <div>
+                <span class="project-name">
+                    <a href="https://github.com/williambendick/Question-DB" target="_blank" rel="noopener noreferrer">
+                        Audiopath<span aria-hidden="true" class="external-link-icon"></span>
+                    </a>
+                </span>
+                <p>
+                    Audiopath is a tool for creating interactive visualizations from sound. It synchronizes the beats in audio tracks with motion in animations.
+                </p>
+                <p class="additional-p">
+                    This version of the application is a prototype, and I am continuing to develop and add functionality to it.
+                </p>
+            </div>
+            <a class="content-image" target="_blank" href="https://github.com/williambendick/Question-DB">
+                <img src="images/audiopath.png" alt="screenshot of Audiopath prototype">
+            </a>
+        </div>
+        <div class="project content-item">
+            <div>
+                <span class="project-name">
+                    <a href="https://github.com/williambendick?tab=repositories" target="_blank" rel="noopener noreferrer">
+                        Github Repos<span aria-hidden="true" class="external-link-icon"></span>
+                    </a>
+                </span>
+                <p>
+                    This is my main Github page with links to the repositories for various scripts and projects I work on.
+                </p>
+            </div>
+            <a class="content-image" target="_blank" href="https://github.com/williambendick?tab=repositories">
+                <img src="images/file-manager.png" alt="screenshot of project from GitHub repository">
+            </a>
+        </div>
+        <hr>
+        <h2 id="connections">Connections</h2>
+        <div class="connections content-item">
+            <span class="connection-name">Email:</span>
+            <a class="connection-link" href="mailto:william.bendick@gmail.com">william.bendick@gmail.com</a>
+        </div>
+        <div class="connections content-item">
+            <span class="connection-name">Github:</span>
+            <a class="connection-link" href="https://github.com/williambendick" target="_blank" rel="noopener noreferrer">
+                https://github.com/williambendick
+                <span aria-hidden="true" class="external-link-icon" style="margin-left: -1px;"></span>
+            </a>
+        </div>
+    </main>
+    <footer></footer>
+
+    <script>
+
+        // set color of clicked menu item
+        const menuItems = document.querySelectorAll('.menu-item')
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                menuItems.forEach(item => item.classList.remove('menu-item-selected'))
+                e.target.classList.add('menu-item-selected')
+            })
+        });
+
+        // menu visibility vars
+        const menu = document.querySelector('#menu')
+        const menuToggle = document.querySelector('#menu-toggle')
+        const content = document.querySelector('#content')
+
+        // toggle menu visibility if menu's toggle is clicked
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation()
+            menu.classList.toggle('active')
+            content.style.marginTop = menu.classList.contains('active') ? '116px' : '0'
+        })
+
+        // close menu if area outside of it is clicked
+        document.addEventListener('click', (event) => {
+            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                menu.classList.remove('active')
+                content.style.marginTop = '0'
+            }
+        });
+
+    </script>
+</body>
+</html>
