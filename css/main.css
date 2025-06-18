@@ -51,20 +51,22 @@
 
     @media screen and (max-width: 770px) {
         #header-items { margin-left: 13px; }
-        #menu { flex-direction: column; position: absolute; top: 100%; left: 0; gap: 0px; background-color: #f7bf02; width: 100%; padding: 0 30px; transition: height .05s ease; }
+        #menu { flex-direction: column; position: absolute; top: 100%; left: 0; gap: 0px; background-color: #f7bf02; width: 100%; padding: 0; transition: height .05s ease; }
         #menu.active { height: 116px; }
         #menu:not(.active) { height: 0px; }
+        .menu-item { margin-left: 30px; }
         #menu-toggle { display: flex; }
         #content { margin-left: 18px; }
         .content-item { margin: 0px 28px 13px 20px; }
+        .content-image{ display: none; }
         h2:before { margin-right: 12px; }
         h2 { margin-bottom: 8px; padding-top: 13px; }
         hr { margin-left: 18px; margin-right: 46px; }
         .additional-p { margin-top: 13px; }
-        .project { gap: 0px; }
-        .content-image{ display: none; }
+        .project { display: block; }
         .project-ap { padding-top: 0px; padding-bottom: 0px; }
-        .connections.content-item { flex-direction: column; margin-top: 15px; margin-bottom: 22px; }
+        .connections { display: block;}
+        .connections.content-item { margin-top: 15px; margin-bottom: 22px; }
         .connection-name { padding: 2px 0px 2px 6px; }
-        .connection-link { padding: 0px 0px 0px 4px; }
+        .connection-link { display: block; padding: 5px 0px 0px 4px; }
     }
